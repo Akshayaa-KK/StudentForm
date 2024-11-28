@@ -1,0 +1,128 @@
+<html>
+
+<body>
+  <h1>Student Form</h1>
+    <table border="1" id="table1">
+      <tr>
+        <td style="font-weight:600;">Name:</td>
+        <td ><input type="text" id="nameInputbox"></input></td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;">Age:</td>
+        <td><input type="text" id="ageInputbox"></input></td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;">Gender:</td>
+        <td>
+          <select style="width: 100%;" id="genderSelector">
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;">Course:</td>
+        <td>
+          <select style="width: 100%;" id="courseSelector">
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>Javascript</option>
+            <option>Express.js</option>
+            <option>Python</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;">E-mail:</td>
+        <td><input type="text" id="emailInputbox"></input></td>
+      </tr>
+    </table>
+    <table border="1" style="width: 14.25%;" id="table2">
+      <tr>
+        <td>
+          <button style="width: 100%; text-align: center" id="saveBtn">Save</button>
+        </td>
+      </tr>
+    </table>
+    <br />
+    <table border="1" id="table3">
+      <tr>
+        <td style="font-weight:600; padding:5px">Name</td>
+        <td style="font-weight:600; padding:5px">Age</td>
+        <td style="font-weight:600; padding:5px">Gender</td>
+        <td style="font-weight:600; padding:5px">Course</td>
+        <td style="font-weight:600; padding:5px">E-mail</td>
+        <td style="font-weight:600; padding:5px">Action</td>
+      </tr>
+    </table>
+
+</body>
+</html>
+
+<script>
+
+      var save=document.getElementById("saveBtn")
+       save.addEventListener("click",function(){
+
+       save.style.backgroundColor="green"
+
+        var table3=document.getElementById("table3")
+
+
+        var row =document.createElement("tr")
+
+        var name=document.getElementById("nameInputbox")
+        var _name=name.value
+
+        var age=document.getElementById("ageInputbox")
+        var _age=age.value
+
+        var gender=document.getElementById("genderSelector")
+        var _gender=gender.value
+
+        var course=document.getElementById("courseSelector")
+        var _course=course.value
+
+        var email=document.getElementById("emailInputbox")
+        var _email=email.value
+
+       
+        var outputName=document.createElement("td")
+        outputName.textContent=_name
+        row.appendChild(outputName)
+
+        var outputAge=document.createElement("td")
+        outputAge.textContent=_age
+        row.appendChild(outputAge)
+
+
+        var outputGender=document.createElement("td")
+        outputGender.textContent=_gender
+        row.appendChild(outputGender)
+
+        var outputCourse=document.createElement("td")
+        outputCourse.textContent=_course
+        row.appendChild(outputCourse)
+
+        var outputEmail=document.createElement("td")
+        outputEmail.textContent=_email
+        row.appendChild(outputEmail)
+
+        var deletebtn=document.createElement("button")
+        deletebtn.textContent="Delete"
+        deletebtn.style.backgroundColor="red"
+        row.appendChild(deletebtn)
+
+        deletebtn.addEventListener("click",function(event){
+          event.target.parentElement.remove()
+        })
+
+        table3.append(row)
+
+        console.log(row)
+        console.log(table3)
+
+       })
+
+     
+</script>
